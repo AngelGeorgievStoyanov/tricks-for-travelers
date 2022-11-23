@@ -1,0 +1,43 @@
+nav#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+
+}
+
+
+ul#nav-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+
+
+
+}
+
+#logo {
+    list-style-type: none;
+}
+
+ul#nav-ul>li {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    list-style-type: none;
+}
+
+#logo>a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-ul>li>a {
+    color: white;
+    text-decoration: none;
+}
