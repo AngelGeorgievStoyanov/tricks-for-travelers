@@ -1,10 +1,12 @@
 <div id="register-div">
     <div id="form">
         <h2>REGISTER PAGE</h2>
-        <form id="register-form" class="register" action="" method="post">        
-            <input type="email" name="email" placeholder="Email" class="register-input" />
-            <input type="password" name="password" placeholder="Password" class="register-input" />
-            <input type="password" name="confirmpass" placeholder="Confirm Password" class="register-input" />
+        <form [formGroup]="form" id="register-form" class="register" action="" method="post" (ngSubmit)="register()">
+            <input type="email" name="email" placeholder="Email" class="register-input" formControlName="email" />
+            <input type="password" name="password" placeholder="Password" class="register-input"
+                formControlName="password" />
+            <input type="password" name="confirmpass" placeholder="Confirm Password" class="register-input"
+                formControlName="confirmpass" />
             <button class="register-input btnSubmit">Sign Up</button>
             <h4><a id="a" class="register-input" routerLink="/login">Already Have An Account?</a></h4>
         </form>

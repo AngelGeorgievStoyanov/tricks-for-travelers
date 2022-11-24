@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 
 
@@ -15,7 +17,12 @@ import { UserRoutingModule } from './user-routing.module';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+    UserService
   ]
 })
 export class UserModule { }
