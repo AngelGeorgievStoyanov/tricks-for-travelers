@@ -7,26 +7,32 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent  {
+export class HeaderComponent {
 
 
-  
+
 
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
   get email(): string {
-   let email= this.userService.user?.email|| '';
-   email =email.split('@')[0]
+    let email = this.userService.user?.email || '';
+    email = email.split('@')[0]
     return email
   }
- 
-
-  constructor( private userService: UserService,
+  get user() {
+    return this.userService.user
+  }
+  token :string|any;
+  constructor(private userService: UserService,
     private router: Router) { }
 
- 
-  
+
+  logout(): void {
+    this.token = this.user!.accessToken
+    this.userService.logout({token:this.token}).subscribe(() =>
+      console.log(this.token))
+  }
 
 }
