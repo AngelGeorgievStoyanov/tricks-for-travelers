@@ -31,8 +31,7 @@ export class HeaderComponent {
 
   logout(): void {
     this.token = this.user!.accessToken
-    this.userService.logout({token:this.token}).subscribe(() =>
-      console.log(this.token))
+    this.userService.logout({token:this.token}).subscribe()
   }
 
 }

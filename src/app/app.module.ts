@@ -7,10 +7,12 @@ import { SharedModule } from './components/shared/shared.module';
 import { UserModule } from './components/user/user.module';
 import { LocalStorage } from './services/injection-tokens-local-storage';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

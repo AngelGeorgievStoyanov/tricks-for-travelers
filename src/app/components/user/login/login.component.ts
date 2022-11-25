@@ -23,11 +23,10 @@ export class LoginComponent {
     this.userSerice.login({ email, password }).subscribe({
       next: (user) => {
         this.token = user.accessToken;
-        console.log(this.token, '---tkoen---')
-        console.log(user, '--user---')
+     
       },
       error: (err) => {
-        console.log(err)
+        console.log(err,'error')
       }
     })
   }

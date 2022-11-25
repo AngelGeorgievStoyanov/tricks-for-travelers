@@ -39,7 +39,7 @@ export class UserService {
 
     logout(data:{token:string}) {
 
-        console.log(data,'----token--')
+      
         return this.http.post<IUser>(`${apiURL}/users/logout`,data, {withCredentials:false}).pipe(
             tap(() => this.user = undefined)
         )
