@@ -24,6 +24,8 @@ export class TripService{
     }
 
 
-
+    getTripById(id:string){
+        return this.http.get<ITrip>(`${apiURL}/data/trips/${id}`)
+    }
 
 }

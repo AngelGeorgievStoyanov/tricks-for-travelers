@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 import { TripsAllComponent } from './trips-all/trips-all.component';
 import { TripCreateComponent } from './trip-create/trip-create.component';
+import { TripDetailsComponent } from './trip-details/trip-details.component';
 
 const routes: Routes=[
 
@@ -16,6 +17,11 @@ const routes: Routes=[
   {
     path:'new-game',
     component:TripCreateComponent
+  },
+  {
+    path:'details/:tripId',
+    pathMatch: 'full',
+    component: TripDetailsComponent
   }
 ]
 

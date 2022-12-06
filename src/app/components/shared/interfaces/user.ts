@@ -7,6 +7,7 @@ export interface IUser {
 
 
 export interface ITrip{
+    _id:string;
     name:string;
     description:string;
     imageUrl:string;

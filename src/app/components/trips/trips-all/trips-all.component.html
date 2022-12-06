@@ -7,6 +7,7 @@
             <h2>{{trip.name}}</h2>
             <p>{{trip.description}}</p>
             <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip" >
+            <button [routerLink]="['/trips/details/',trip._id ]" >Details</button>
         </li>
     </section>
 
