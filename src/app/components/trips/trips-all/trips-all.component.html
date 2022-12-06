@@ -1,1 +1,13 @@
 <p>trips-all works!</p>
+
+<main id="main" class="main">
+
+    <section  *ngFor="let trip of trips">
+        <li class="trip-item">
+            <h2>{{trip.name}}</h2>
+            <p>{{trip.description}}</p>
+            <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip" >
+        </li>
+    </section>
+
+</main>

@@ -19,6 +19,10 @@ export class TripService{
         return this.http.post<ITrip>(`${apiURL}/data/trips`,data,{withCredentials:false})
     }
 
+    getAllTrips(){
+        return this.http.get<ITrip[]>(`${apiURL}/data/trips`,{withCredentials:false})
+    }
+
 
 
 
