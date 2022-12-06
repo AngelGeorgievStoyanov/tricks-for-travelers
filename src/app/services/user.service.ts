@@ -11,7 +11,7 @@ const apiURL = environment.apiURL;
 @Injectable()
 export class UserService {
 
-    user: IUser | undefined = undefined;
+    user: IUser | null   | undefined = undefined;
 
     get isLogged(): boolean {
         return !!this.user;
@@ -37,11 +37,11 @@ export class UserService {
     }
 
 
-    logout(data:{token:string}) {
+    logout(data: { token: string }) {
 
-      
-        return this.http.post<IUser>(`${apiURL}/users/logout`,data, {withCredentials:false}).pipe(
-            tap(() => this.user = undefined)
+
+        return this.http.post<IUser>(`${apiURL}/users/logout`, data, { withCredentials: false }).pipe(
+            tap(() => this.user = null)
         )
     }
 

@@ -5,3 +5,10 @@ export interface IUser {
     accessToken:string;
 }
 
+
+export interface ITrip{
+    name:string;
+    description:string;
+    imageUrl:string;
+}
+

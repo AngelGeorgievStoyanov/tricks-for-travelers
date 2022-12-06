@@ -1,0 +1,15 @@
+<div>
+    <section>
+        <form class="form-add-trip" #form="ngForm" method="POST" (ngSubmit)="addTrip(form)">
+            <h2>ADD NEW TRIP</h2>
+            <label for="name"></label>
+            <input  #nameInput="ngModel" ngModel type="text" name="name" >
+            <label for="description">Description</label>
+            <textarea  #descriptionInput="ngModel" ngModel name="description" id="" cols="40" rows="7" 
+            ></textarea>
+            <label for="imageUrl">imageUrl</label>
+            <input  #imageUrlInput="ngModel" ngModel type="text" name="imageUrl"  >
+            <button>ADD</button>
+        </form>
+    </section>
+</div>

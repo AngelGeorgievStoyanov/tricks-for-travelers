@@ -19,7 +19,7 @@ export class LoginComponent {
 
   login(form: NgForm): void {
     const { email, password } = form.value;
-
+console.log(email,password)
     this.userSerice.login({ email, password }).subscribe({
       next: (user) => {
         this.token = user.accessToken;
