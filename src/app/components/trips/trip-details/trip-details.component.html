@@ -6,6 +6,7 @@
     <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
     <button [routerLink]="['/trips/edit/',trip?._id ]">Edit</button>
    
+    <button (click)="delTrip(trip!._id)">Delete</button>
 
   
 

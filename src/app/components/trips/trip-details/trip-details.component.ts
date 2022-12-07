@@ -12,7 +12,7 @@ export class TripDetailsComponent {
 
 
   trip: ITrip | undefined;
- 
+
 
 
   constructor(private tripService: TripService, private activateRoute: ActivatedRoute) {
@@ -23,16 +23,21 @@ export class TripDetailsComponent {
   fetchTrip(): void {
     this.trip = undefined;
     const id = this.activateRoute.snapshot.params['tripId'];
-    
 
-    this.tripService.getTripById(id).subscribe((data)=>{
-      if(data){
-        this.trip=data
+
+    this.tripService.getTripById(id).subscribe((data) => {
+      if (data) {
+        this.trip = data
 
       }
       console.log(this.trip)
     })
   }
 
+
+  delTrip(id:string):void{
+    console.log(id)
+    this.tripService.deliteTripById(id).subscribe(console.log)
+  }
 
 }
