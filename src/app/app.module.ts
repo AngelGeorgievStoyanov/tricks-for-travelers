@@ -20,7 +20,7 @@ import { TripsModule } from './components/trips/trips.module';
     BrowserModule,
     SharedModule,
     UserModule,
-    TripsModule,
+   
     AppRoutingModule
   ],
   providers: [

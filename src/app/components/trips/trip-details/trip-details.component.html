@@ -3,6 +3,10 @@
 <section class="section-details">
     <h2>Trip name : {{trip?.name}}</h2>
     <p>Description : {{trip?.description}}</p>
-    <img src={{trip?.imageUrl}} alt="Trip">
+    <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
     <button [routerLink]="['/trips/edit/',trip?._id ]">Edit</button>
+   
+
+  
+
 </section>

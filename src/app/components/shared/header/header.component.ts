@@ -24,14 +24,14 @@ export class HeaderComponent {
   get user() {
     return this.userService.user
   }
-  token :string|any;
+  token: string | any;
   constructor(private userService: UserService,
     private router: Router) { }
 
 
   logout(): void {
     this.token = this.user!.accessToken
-    this.userService.logout({token:this.token}).subscribe()
+    this.userService.logout({ token: this.token }).subscribe()
   }
 
 }

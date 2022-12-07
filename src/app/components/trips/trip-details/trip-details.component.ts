@@ -26,7 +26,10 @@ export class TripDetailsComponent {
     
 
     this.tripService.getTripById(id).subscribe((data)=>{
-      this.trip=data
+      if(data){
+        this.trip=data
+
+      }
       console.log(this.trip)
     })
   }

@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
 
-  token = '';
+  token:string = '';
 
   constructor(
     private userSerice: UserService,
@@ -19,14 +19,15 @@ export class LoginComponent {
 
   login(form: NgForm): void {
     const { email, password } = form.value;
-console.log(email,password)
+  
     this.userSerice.login({ email, password }).subscribe({
       next: (user) => {
         this.token = user.accessToken;
-     
+        console.log(this.token)
+        this.router.navigate(['/home'])
       },
       error: (err) => {
-        console.log(err,'error')
+        console.log(err, 'error')
       }
     })
   }

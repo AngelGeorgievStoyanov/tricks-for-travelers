@@ -1,3 +1,7 @@
+.sectiom-create-trip{
+    height: 100vh;
+}
+
 .form-add-trip{
     display: flex;    
     flex-direction: column;

@@ -28,4 +28,8 @@ export class TripService{
         return this.http.get<ITrip>(`${apiURL}/data/trips/${id}`)
     }
 
+    editTripById(id:string,trip:ITrip){
+        return this.http.put<ITrip>(`${apiURL}/data/trips/${id}`,trip,{withCredentials:false})
+    }
+
 }
