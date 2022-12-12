@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TripService } from 'src/app/services/trip.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-trip-create',
@@ -11,26 +12,44 @@ import { TripService } from 'src/app/services/trip.service';
 export class TripCreateComponent {
 
 
+  form: FormGroup;
+
+  get userId(): string {
+    return this.userService.user?._id || ''
+  }
 
   constructor(
     private tripService: TripService,
-    private router:Router
+    private router: Router,
+    private userService: UserService,
+    private fb: FormBuilder,
 
   ) {
 
-
+    this.form = this.fb.group({
+      title: [''],
+      description: [''],
+      imageUrl: [''],
+      transport: [''],
+      countPeoples: [''],
+      typeOfPeople: [''],
+      destination: [''],
+      coments: [new Array],
+      likes: [new Array],          
+      _ownerId: this.userId,
+      
+   })
   }
 
 
 
 
-  addTrip(form: NgForm): void {
-    const { name, description, imageUrl } = form.value
+  addTrip(): void {
+   console.log(this.form.value)
 
-
-    this.tripService.createTrip({ name, description, imageUrl }).subscribe({
+    this.tripService.createTrip(this.form.value ).subscribe({
       next: (() => {
-this.router.navigate(['/trips'])
+        this.router.navigate(['/trips'])
       })
     })
 

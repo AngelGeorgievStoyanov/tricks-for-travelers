@@ -1,14 +1,44 @@
 <div>
     <section class="sectiom-create-trip">
-        <form class="form-add-trip" #form="ngForm" method="POST" (ngSubmit)="addTrip(form)">
+        <form [formGroup]="form" class="form-add-trip"  method="POST" (ngSubmit)="addTrip()">
             <h2>ADD NEW TRIP</h2>
-            <label for="name"></label>
-            <input  #nameInput="ngModel" ngModel type="text" name="name" >
+            <label for="title">TITLE :
+                <input  type="text" name="title"  formControlName="title">
+            </label>
+            <label for="price">PRICE :
+                <input type="number" name="price"  formControlName="price">
+            </label>
+
+            <label for="transport">TRANSPORT WITH :
+                <select name="transport" id=""  formControlName="transport">
+                    <option value="Car">Car</option>
+                    <option value="Bus">Bus</option>
+                    <option value="Aircraft">Aircraft</option>
+                    <option value="Another type">Another type</option>
+                </select>
+            </label>
+
+            <label for="countPeoples">COUNT OF PEOPLE :
+                <input type="number" name="countPeoples"  formControlName="countPeoples">
+            </label>
+            <label for="typeOfPeople"> TYPE OF THE GROUP :
+                <select name="typeOfPeople" id=""   formControlName="typeOfPeople">
+                    <option value="Family">Family</option>
+                    <option value="Family with children">Family with children</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Another type">Another type</option>
+                </select>
+
+            </label>
+            <label for="destination">DESTINATION :
+                <input type="text" name="destination"  formControlName="destination">
+            </label>
+
             <label for="description">Description</label>
-            <textarea  #descriptionInput="ngModel" ngModel name="description" id="" cols="40" rows="7" 
-            ></textarea>
-            <label for="imageUrl">imageUrl</label>
-            <input  #imageUrlInput="ngModel" ngModel type="text" name="imageUrl"  >
+            <textarea  name="description" id="" cols="40" rows="7"  formControlName="description"></textarea>
+            <label for="imageUrl">imageUrl :
+                <input  type="text" name="imageUrl"  formControlName="imageUrl">
+            </label>
             <button>ADD</button>
         </form>
     </section>

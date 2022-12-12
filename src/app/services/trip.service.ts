@@ -12,7 +12,7 @@ export class TripService{
     constructor(private http:HttpClient){}
 
 
-    createTrip(data:{name:string,description:string,imageUrl:string}){
+    createTrip({...data}){
 
 
 

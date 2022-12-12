@@ -1,7 +1,7 @@
 <p>trip-details works!</p>
 
 <section class="section-details">
-    <h2>Trip name : {{trip?.name}}</h2>
+    <h2>Trip name : {{trip?.title}}</h2>
     <p>Description : {{trip?.description}}</p>
     <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
     <button [routerLink]="['/trips/edit/',trip?._id ]">Edit</button>

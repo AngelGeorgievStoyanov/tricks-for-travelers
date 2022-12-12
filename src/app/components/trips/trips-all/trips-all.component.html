@@ -4,7 +4,7 @@
 
     <section  *ngFor="let trip of trips">
         <li class="trip-item">
-            <h2>{{trip.name}}</h2>
+            <h2>{{trip.title}}</h2>
             <p>{{trip.description}}</p>
             <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip" >
             <button [routerLink]="['/trips/details/',trip._id ]" >Details</button>

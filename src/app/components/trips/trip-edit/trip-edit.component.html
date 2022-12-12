@@ -6,7 +6,7 @@
         <form class="form-edit-trip" #form="ngForm" method="POST" (ngSubmit)="editTrip(form)">
             <h2>EDIT YOUR TRIP</h2>
             <label for="name"></label>
-            <input  [(ngModel)]="trip!.name" ngModel type="text" name="name" >
+            <input  [(ngModel)]="trip!.title" ngModel type="text" name="title" >
             <label for="description">Description</label>
             <textarea   [(ngModel)]="trip!.description" ngModel name="description" id="" cols="40" rows="7" 
             ></textarea>
@@ -15,5 +15,7 @@
             <button>EDIT</button>
         </form>
     </section>
+
+    
  
 </div>
