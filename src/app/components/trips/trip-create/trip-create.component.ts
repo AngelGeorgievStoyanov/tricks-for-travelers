@@ -15,7 +15,13 @@ export class TripCreateComponent {
   form: FormGroup;
 
   get userId(): string {
-    return this.userService.user?._id || ''
+    if (this.userService.user?._id !== undefined) {
+      return this.userService.user?._id
+    } else if (localStorage.getItem('userId')) {
+      return localStorage.getItem('userId') || ''
+    } else {
+      return ''
+    }
   }
 
   constructor(
@@ -35,19 +41,19 @@ export class TripCreateComponent {
       typeOfPeople: [''],
       destination: [''],
       coments: [new Array],
-      likes: [new Array],          
+      likes: [new Array],
       _ownerId: this.userId,
-      
-   })
+
+    })
   }
 
 
 
 
   addTrip(): void {
-   console.log(this.form.value)
+    console.log(this.form.value)
 
-    this.tripService.createTrip(this.form.value ).subscribe({
+    this.tripService.createTrip(this.form.value).subscribe({
       next: (() => {
         this.router.navigate(['/trips'])
       })

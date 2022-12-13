@@ -10,11 +10,15 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { TripService } from './services/trip.service';
 import { TripsModule } from './components/trips/trips.module';
+import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AddCommentComponent,
+    EditCommentComponent,
   ],
   imports: [
     BrowserModule,

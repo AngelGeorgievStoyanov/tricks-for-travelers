@@ -7,7 +7,7 @@
 
             <!-- //TODO guests -->
         </ul>
-        <ul  *ngIf="!isLogged"  id="nav-ul" class="nav-ul">
+        <ul *ngIf="!local" id="nav-ul" class="nav-ul">
             <li>
                 <a routerLink="/home">Home</a>
             </li>
@@ -21,10 +21,12 @@
             <li>
                 <a routerLink="/register">Register</a>
             </li>
+
+
         </ul>
 
         <!-- //TODO user loged -->
-        <ul *ngIf="isLogged" id="nav-ul" class="nav-ul">
+        <ul *ngIf="local" id="nav-ul" class="nav-ul">
             <li>
                 <a routerLink="/home">Home</a>
             </li>

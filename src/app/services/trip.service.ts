@@ -14,8 +14,6 @@ export class TripService{
 
     createTrip({...data}){
 
-
-
         return this.http.post<ITrip>(`${apiURL}/data/trips`,data,{withCredentials:false})
     }
 

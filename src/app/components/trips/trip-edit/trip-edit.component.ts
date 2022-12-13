@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITrip } from '../../shared/interfaces/user';
 import { TripService } from 'src/app/services/trip.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 
@@ -17,7 +17,7 @@ export class TripEditComponent {
 
 
 
-  constructor(private tripService: TripService, private activateRoute: ActivatedRoute) {
+  constructor(private tripService: TripService, private activateRoute: ActivatedRoute, private router: Router) {
 
     this.fetchTrip()
   }
@@ -39,10 +39,18 @@ export class TripEditComponent {
 
   editTrip(form: NgForm) {
 
-    console.log(form.value)
+    console.log(form.value,'--form --')
     const id = this.activateRoute.snapshot.params;// activateRoute.snapshot.params['tripId'] ------- not work?!?
     const tripId = Object.values(id)[0]
-    this.tripService.editTripById(tripId, form.value).subscribe(console.log)
+    this.tripService.editTripById(tripId, form.value).subscribe({
+      next:()=>{
+       
+        this.router.navigate([`/trips/details/${tripId}`])
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
   }
 
 }

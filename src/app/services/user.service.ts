@@ -5,7 +5,6 @@ import { IUser } from "../components/shared/interfaces/user";
 import { tap } from 'rxjs/operators';
 
 
-
 const apiURL = environment.apiURL;
 
 @Injectable()
@@ -44,7 +43,7 @@ export class UserService {
             tap(() => this.user = null)
         )
     }
-
+    
 
 }
 

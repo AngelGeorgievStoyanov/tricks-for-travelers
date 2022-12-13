@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from 'src/app/services/trip.service';
-import { ITrip } from '../../shared/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
+import { ITrip, IUser } from '../../shared/interfaces/user';
 
 @Component({
   selector: 'app-trip-details',
@@ -13,9 +14,13 @@ export class TripDetailsComponent {
 
   trip: ITrip | undefined;
 
+  user: IUser | undefined;
 
 
-  constructor(private tripService: TripService, private activateRoute: ActivatedRoute) {
+  constructor(private tripService: TripService,
+     private activateRoute: ActivatedRoute,
+      private userService: UserService,
+      private router:Router) {
 
     this.fetchTrip()
   }
@@ -35,9 +40,44 @@ export class TripDetailsComponent {
   }
 
 
-  delTrip(id:string):void{
+  delTrip(id: string): void {
     console.log(id)
     this.tripService.deliteTripById(id).subscribe(console.log)
   }
 
+  like(tripId: string) {
+    let userId: string | undefined
+    if (this.userService.user?._id !== undefined) {
+
+      userId = this.userService.user?._id
+      console.log(userId)
+
+      this.trip?.likes.push(userId)
+
+    } else if (localStorage.getItem('userId') !== undefined) {
+
+      userId = localStorage.getItem('userId') as string
+      console.log(userId, '--local--')
+      this.trip?.likes.push(userId)
+    } else {
+      userId = undefined
+
+    }
+
+
+    if (userId !== undefined && this.trip !== undefined) {
+      this.tripService.editTripById(tripId, this.trip).subscribe({
+        next: () => {
+
+          this.router.navigate([`/trips/details/${tripId}`])
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+
+  }
 }
+
+
