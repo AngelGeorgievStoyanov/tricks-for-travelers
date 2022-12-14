@@ -42,7 +42,7 @@ export class TripDetailsComponent {
 
   delTrip(id: string): void {
     console.log(id)
-    this.tripService.deliteTripById(id).subscribe(console.log)
+    this.tripService.deleteTripById(id).subscribe(console.log)
   }
 
   like(tripId: string) {

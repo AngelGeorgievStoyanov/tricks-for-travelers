@@ -23,8 +23,9 @@ export interface ITrip {
 
 
 export interface IComment{
+    nameAuthor: string | null;
     _id:string;
-    description:string;
+    comment:string;
     _ownerId: string;
     _tripId:string;
 }

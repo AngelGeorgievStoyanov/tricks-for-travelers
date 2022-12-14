@@ -38,8 +38,10 @@ export class AddCommentComponent {
     private activateRoute: ActivatedRoute,
     private commentService: CommentService,
     private router: Router) {
+
+
     this.form = this.fb.group({
-      description: [''],
+      comment: [''],
       _ownerId: this.userId,
       nameAuthor: this.nameAuthor,
       _tripId: this.activateRoute.snapshot.params['tripId']
@@ -51,6 +53,7 @@ export class AddCommentComponent {
   addcoment(): void {
 
     const id = this.activateRoute.snapshot.params['tripId'];
+
     console.log(this.form.value)
     this.commentService.createComment(this.form.value).subscribe({
       next: () =>

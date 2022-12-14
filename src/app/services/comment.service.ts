@@ -23,4 +23,15 @@ export class CommentService {
     }
 
 
+    getCommentByTripId(tripId: string) {
+        console.log(tripId)
+        return this.http.get<IComment>(`${apiURL}/data/comments/trip/${tripId}`)
+    }
+
+    deleteCommentById(commentId: string) {
+        return this.http.delete<IComment>(`${apiURL}/data/comments/${commentId}`)
+
+    }
+
+
 }

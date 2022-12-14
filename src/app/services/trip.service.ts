@@ -30,7 +30,7 @@ export class TripService{
         return this.http.put<ITrip>(`${apiURL}/data/trips/${id}`,trip,{withCredentials:false})
     }
 
-    deliteTripById(id:string){
+    deleteTripById(id:string){
         return this.http.delete<ITrip>(`${apiURL}/data/trips/${id}`)
     }
 

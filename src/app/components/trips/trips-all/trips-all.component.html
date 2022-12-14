@@ -1,14 +1,15 @@
-
-
 <main id="main" class="main">
 
-    <section  *ngFor="let trip of trips">
-        <li class="trip-item">
-            <h2>{{trip.title}}</h2>
-            <p>{{trip.description}}</p>
-            <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip" >
-            <button [routerLink]="['/trips/details/',trip._id ]" >Details</button>
-        </li>
+    <section class="section-trip" *ngFor="let trip of trips"  id={{trip._id}}>
+        <div class="trip-div">
+            <li class="trip-item">
+                <h2>{{trip.title}}</h2>
+                <p>{{trip.description}}</p>
+                <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
+                <button [routerLink]="['/trips/details/',trip._id ]">Details</button>
+            </li>
+        </div>
+       
     </section>
 
 </main>
