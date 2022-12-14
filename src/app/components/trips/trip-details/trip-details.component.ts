@@ -18,9 +18,9 @@ export class TripDetailsComponent {
 
 
   constructor(private tripService: TripService,
-     private activateRoute: ActivatedRoute,
-      private userService: UserService,
-      private router:Router) {
+    private activateRoute: ActivatedRoute,
+    private userService: UserService,
+    private router: Router) {
 
     this.fetchTrip()
   }
@@ -63,7 +63,7 @@ export class TripDetailsComponent {
       userId = undefined
 
     }
-
+    console.log(this.trip, '--trip like---')
 
     if (userId !== undefined && this.trip !== undefined) {
       this.tripService.editTripById(tripId, this.trip).subscribe({
@@ -77,6 +77,16 @@ export class TripDetailsComponent {
       })
     }
 
+  }
+
+
+  addComment(tripId: string ) {
+    if(this.user===undefined){
+      const userId = localStorage.getItem('userId') ? localStorage.getItem('userId'): ''
+      console.log(tripId)
+      console.log(userId,'--userId--')
+      this.router.navigate([`/comments/add-comment/${tripId}`])
+    }
   }
 }
 

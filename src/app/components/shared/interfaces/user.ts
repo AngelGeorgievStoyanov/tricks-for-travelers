@@ -21,3 +21,10 @@ export interface ITrip {
     _ownerId: string
 }
 
+
+export interface IComment{
+    _id:string;
+    description:string;
+    _ownerId: string;
+    _tripId:string;
+}

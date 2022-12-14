@@ -1,0 +1,20 @@
+#div-add-coment{
+    min-height: 100vh;
+}
+
+.section-add-comment{
+    display: flex;
+   justify-content: center;
+   margin-top: 50px;
+}
+
+.form-add-comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: solid 2px;
+    border-radius: 9px;
+    padding: 20px;
+    height: 150px;
+ 
+}

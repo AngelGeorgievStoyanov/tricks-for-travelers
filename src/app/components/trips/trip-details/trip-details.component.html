@@ -8,7 +8,9 @@
    
     <button (click)="delTrip(trip!._id)">Delete</button>
     <button (click)="like(trip!._id)" >LIKE</button>
-    <button>ADD COMMENT</button>
+    <button [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
+
+ 
 
   
 

@@ -12,13 +12,13 @@ import { TripService } from './services/trip.service';
 import { TripsModule } from './components/trips/trips.module';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
+import { CommentService } from './services/comment.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AddCommentComponent,
-    EditCommentComponent,
+    HomeComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,8 @@ import { EditCommentComponent } from './components/comments/edit-comment/edit-co
     AppRoutingModule
   ],
   providers: [
-    TripService
+    TripService,
+    CommentService
     // {
     //   provide: LocalStorage,
     //   useFactory: (platformId: Object) => {

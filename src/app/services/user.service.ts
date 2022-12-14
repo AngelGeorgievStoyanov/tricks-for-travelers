@@ -10,7 +10,7 @@ const apiURL = environment.apiURL;
 @Injectable()
 export class UserService {
 
-    user: IUser | null   | undefined = undefined;
+    user: IUser | null | undefined = undefined;
 
     get isLogged(): boolean {
         return !!this.user;
@@ -31,7 +31,12 @@ export class UserService {
     login(data: { email: string; password: string }) {
 
         return this.http.post<IUser>(`${apiURL}/users/login`, data, { withCredentials: false }).pipe(
-            tap((user) => this.user = user)
+            tap((user) => {
+                // TODO ? localStorage.setItem(`${user._id}`, JSON.stringify(user))
+
+                this.user = user
+            })
+
         );
     }
 
@@ -43,7 +48,7 @@ export class UserService {
             tap(() => this.user = null)
         )
     }
-    
+
 
 }
 

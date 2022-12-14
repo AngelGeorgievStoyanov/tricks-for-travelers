@@ -1,1 +1,14 @@
-<p>add-comment works!</p>
+
+
+
+<div id="div-add-coment">
+    <section class="section-add-comment">
+
+        <form class="form-add-comment" [formGroup]="form" id="form" method="POST" (ngSubmit)="addcoment()" >
+            <label for="comment">Comment</label>
+            <textarea  formControlName="comment" name="comment" id="comment" cols="20" rows="4"
+            formControlName="comment" required="comment"></textarea>
+            <button>ADD</button>
+        </form>
+    </section>
+</div>
