@@ -81,7 +81,7 @@ export class TripsAllComponent {
 
   editComment(cmtId: string): void {
     console.log(cmtId)
-    this.router.navigate([`/comments/edit-comment/${cmtId} ]`])
+    this.router.navigate([`/comments/edit-comment/${cmtId}`])
   }
 
 

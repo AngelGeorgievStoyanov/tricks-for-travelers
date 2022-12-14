@@ -33,5 +33,14 @@ export class CommentService {
 
     }
 
+    getCommentById(commentId:string){
+        return this.http.get<IComment>(`${apiURL}/data/comments/${commentId}`)
+    }
+
+    editCommentById(commentId:string, comment:IComment){
+        return this.http.put<IComment>(`${apiURL}/data/comments/${commentId}`,comment,{withCredentials:false})
+
+    }
+
 
 }

@@ -1,1 +1,15 @@
 <p>edit-comment works!</p>
+
+<div id="div-edit-coment">
+    <section class="section-edit-comment">
+
+        <form id="form" #form="ngForm" class="form-edit-comment" method="PUT" (ngSubmit)="editComment(form)">
+            <label for="comment">Comment</label>
+            <textarea name="comment" id="comment" cols="20" rows="4"  [(ngModel)]="comment!.comment" ngModel></textarea>
+            <button>EDIT COMMENT</button>
+            <button (click)="back()">BACK</button>
+        </form>
+    </section>
+</div>
+
+[(ngModel)]="trip!.description" ngModel
