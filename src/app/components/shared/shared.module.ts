@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import{AuthActivate} from './guards/auth.activate'
 
 
 
@@ -21,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http'
   exports:[
     HeaderComponent,
     FooterComponent
+  ],
+  providers:[
+    AuthActivate
   ]
 })
 export class SharedModule { }

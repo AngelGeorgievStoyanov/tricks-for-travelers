@@ -13,7 +13,7 @@ export class UserService {
     user: IUser | null | undefined = undefined;
 
     get isLogged(): boolean {
-        return !!this.user;
+        return !!localStorage.getItem('userId');
     }
 
     constructor(private http: HttpClient) { }
@@ -35,6 +35,8 @@ export class UserService {
                 // TODO ? localStorage.setItem(`${user._id}`, JSON.stringify(user))
 
                 this.user = user
+                console.log(user,'---seer--'),
+                console.log(this.isLogged,'--isloged---')
             })
 
         );
@@ -45,7 +47,12 @@ export class UserService {
 
 
         return this.http.post<IUser>(`${apiURL}/users/logout`, data, { withCredentials: false }).pipe(
-            tap(() => this.user = null)
+            tap(() =>{
+
+                console.log(this.user,'---user--'),
+                console.log(this.isLogged,'--isloged---'),
+                this.user = null})
+            
         )
     }
 

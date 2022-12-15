@@ -43,6 +43,7 @@ export class TripCreateComponent {
       coments: [new Array],
       likes: [new Array],
       _ownerId: this.userId,
+      price:['']
 
     })
   }
