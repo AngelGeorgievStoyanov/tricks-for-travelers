@@ -24,7 +24,6 @@ export class LoginComponent {
     this.userSerice.login({ email, password }).subscribe({
       next: (user) => {
         this.token = user.accessToken;
-        console.log(user)
         this.setSession(user)
         this.router.navigate(['/home'])
       },

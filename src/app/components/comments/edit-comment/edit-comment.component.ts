@@ -24,22 +24,17 @@ export class EditCommentComponent {
 
   fetchComment() {
     this.comment = undefined;
-    const id = this.activateRoute.snapshot.params['commentId'];// activateRoute.snapshot.params['commentId'] ------- not work?!?
-    console.log(id, '--id')
+    const id = this.activateRoute.snapshot.params['commentId'];
 
-    // const commentId = Object.values(id)[0]
-    // console.log(commentId, '--commentid')
 
     this.commentService.getCommentById(id).subscribe((data) => {
       this.comment = data
-      console.log(this.comment)
     })
 
   }
 
   editComment(form:NgForm){
 
-    console.log(form.value)
     const id = this.activateRoute.snapshot.params['commentId'];// activateRoute.snapshot.params['commentId'] ------- not work?!?
 
     this.commentService.editCommentById(id,form.value).subscribe({

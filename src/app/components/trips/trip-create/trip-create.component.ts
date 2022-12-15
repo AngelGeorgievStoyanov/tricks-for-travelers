@@ -51,7 +51,6 @@ export class TripCreateComponent {
 
 
   addTrip(): void {
-    console.log(this.form.value)
 
     this.tripService.createTrip(this.form.value).subscribe({
       next: (() => {

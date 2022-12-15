@@ -54,7 +54,6 @@ export class AddCommentComponent {
 
     const id = this.activateRoute.snapshot.params['tripId'];
 
-    console.log(this.form.value)
     this.commentService.createComment(this.form.value).subscribe({
       next: () =>
         this.router.navigate([`/trips/details/${id}`])

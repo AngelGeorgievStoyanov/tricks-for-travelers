@@ -1,15 +1,16 @@
 <main id="main" class="main">
 
-    <section class="section-trip" *ngFor="let trip of trips"  id={{trip._id}}>
+    <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
         <div class="trip-div">
             <li class="trip-item">
                 <h2>{{trip.title}}</h2>
                 <p>{{trip.description}}</p>
                 <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
+                <p *ngIf="trip.likes.length>0">LIKES : {{trip.likes.length}}</p>
                 <button [routerLink]="['/trips/details/',trip._id ]">Details</button>
             </li>
         </div>
-       
+
     </section>
 
 </main>

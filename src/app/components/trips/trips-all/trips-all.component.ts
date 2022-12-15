@@ -30,7 +30,6 @@ export class TripsAllComponent {
 
         this.tripId = this.trips.map((x) => { return x._id })
 
-      console.log(this.tripId)
 
       this.tripId.map((x) => this.commentService.getCommentByTripId(x).subscribe(data => {
 
@@ -72,7 +71,6 @@ export class TripsAllComponent {
 
 
   delComment(cmtId: string): void {
-    console.log(cmtId)
     this.commentService.deleteCommentById(cmtId).subscribe(
       ()=>this.fetchTrips()
     )
@@ -80,7 +78,6 @@ export class TripsAllComponent {
 
 
   editComment(cmtId: string): void {
-    console.log(cmtId)
     this.router.navigate([`/comments/edit-comment/${cmtId}`])
   }
 

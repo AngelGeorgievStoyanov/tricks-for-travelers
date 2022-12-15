@@ -34,7 +34,6 @@ export class RegisterComponent  {
     this.userService.register(this.form.value).subscribe({
       next: (user) => {
         this.token = user.accessToken;
-        console.log(user)
         this.setSession(user)
         this.router.navigate(['/home'])
       },

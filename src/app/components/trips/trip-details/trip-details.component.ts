@@ -35,14 +35,16 @@ export class TripDetailsComponent {
         this.trip = data
 
       }
-      console.log(this.trip)
     })
   }
 
 
   delTrip(id: string): void {
-    console.log(id)
-    this.tripService.deleteTripById(id).subscribe(console.log)
+    this.tripService.deleteTripById(id).subscribe({
+      next:()=>{
+        this.router.navigate(['/trips'])
+      }
+    })
   }
 
   like(tripId: string) {
@@ -50,20 +52,17 @@ export class TripDetailsComponent {
     if (this.userService.user?._id !== undefined) {
 
       userId = this.userService.user?._id
-      console.log(userId)
 
       this.trip?.likes.push(userId)
 
     } else if (localStorage.getItem('userId') !== undefined) {
 
       userId = localStorage.getItem('userId') as string
-      console.log(userId, '--local--')
       this.trip?.likes.push(userId)
     } else {
       userId = undefined
 
     }
-    console.log(this.trip, '--trip like---')
 
     if (userId !== undefined && this.trip !== undefined) {
       this.tripService.editTripById(tripId, this.trip).subscribe({
@@ -83,8 +82,6 @@ export class TripDetailsComponent {
   addComment(tripId: string ) {
     if(this.user===undefined){
       const userId = localStorage.getItem('userId') ? localStorage.getItem('userId'): ''
-      console.log(tripId)
-      console.log(userId,'--userId--')
       this.router.navigate([`/comments/add-comment/${tripId}`])
     }
   }

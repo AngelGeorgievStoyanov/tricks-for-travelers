@@ -18,13 +18,11 @@ export class CommentService {
 
 
     createComment({ ...data }) {
-        console.log(data)
         return this.http.post<IComment>(`${apiURL}/data/comments`, data, { withCredentials: false })
     }
 
 
     getCommentByTripId(tripId: string) {
-        console.log(tripId)
         return this.http.get<IComment>(`${apiURL}/data/comments/trip/${tripId}`)
     }
 

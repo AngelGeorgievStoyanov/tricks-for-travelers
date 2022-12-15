@@ -32,14 +32,12 @@ export class TripEditComponent {
 
     this.tripService.getTripById(tripId).subscribe((data) => {
       this.trip = data
-      console.log(this.trip)
     })
   }
 
 
   editTrip(form: NgForm) {
 
-    console.log(form.value,'--form --')
     const id = this.activateRoute.snapshot.params;// activateRoute.snapshot.params['tripId'] ------- not work?!?
     const tripId = Object.values(id)[0]
     this.tripService.editTripById(tripId, form.value).subscribe({
