@@ -1,12 +1,48 @@
 <div id="register-div">
     <div id="form">
+        <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
         <h2>REGISTER PAGE</h2>
         <form [formGroup]="form" id="register-form" class="register" action="" method="post" (ngSubmit)="register()">
-            <input type="email" name="email" placeholder="Email" class="register-input" formControlName="email" />
-            <input type="password" name="password" placeholder="Password" class="register-input"
-                formControlName="password" />
-            <input type="password" name="confirmpass" placeholder="Confirm Password" class="register-input"
-                formControlName="confirmpass" />
+            <span>
+                <label for="email">EMAIL:</label>
+                <input type="email" name="email" placeholder="Email" class="register-input" formControlName="email"
+                    email="true" />
+            </span>
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p *ngIf="form.get('email')?.errors?.['required']" class="error">
+                    Email is required!
+                </p>
+                <p *ngIf="form.get('email')?.errors?.['email']" class="error">
+                    Email is not valid!
+                </p>
+            </ng-container>
+            <span>
+                <label for="password">PASSWORD:</label>
+                <input type="password" name="password" placeholder="Password" class="register-input"
+                    formControlName="password" minlength="3" />
+            </span>
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p *ngIf="form.get('password')?.errors?.['required']" class="error">
+                    Password is required!
+                </p>
+                <p *ngIf="form.get('password')?.errors?.['minlength']" class="error">
+                    Password must be at least 3 characters!
+                </p>
+            </ng-container>
+            <span>
+                <label for="confirmpass">CONFIRM PASSWORD:</label>
+                <input type="password" name="confirmpass" placeholder="Confirm Password" class="register-input"
+                    formControlName="confirmpass" />
+            </span>
+
+            <ng-container *ngIf="form.get('confirmpass')?.touched">
+                <p *ngIf="form.get('confirmpass')?.errors?.['required']" class="error">
+                    Repeat Password is required!
+                </p>
+                <p *ngIf="f['confirmpass'].getError('dontMantch')!=null" class="error">
+                    Repeat Password does not match password!
+                </p>
+            </ng-container>
             <button class="register-input btnSubmit">Sign Up</button>
             <h4><a id="a" class="register-input" routerLink="/login">Already Have An Account?</a></h4>
         </form>

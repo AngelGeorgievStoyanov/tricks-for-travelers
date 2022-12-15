@@ -6,6 +6,7 @@ import { TripCreateComponent } from './trip-create/trip-create.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { AuthActivate } from '../shared/guards/auth.activate';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes=[
 
@@ -44,6 +45,10 @@ const routes: Routes=[
       authenticationRequired: true,
       authenticationFailureRedirectUrl: '/login',
     }
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ]
 

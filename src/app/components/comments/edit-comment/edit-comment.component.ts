@@ -27,9 +27,22 @@ export class EditCommentComponent {
     const id = this.activateRoute.snapshot.params['commentId'];
 
 
-    this.commentService.getCommentById(id).subscribe((data) => {
-      this.comment = data
+    this.commentService.getCommentById(id).subscribe({
+      next:(data)=>{
+        if(data){
+          this.comment=data;
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+        if(err){
+          this.router.navigate(['/not-found'])
+        }
+      }
     })
+ 
+
+    
 
   }
 

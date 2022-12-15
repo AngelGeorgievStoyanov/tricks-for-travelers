@@ -12,6 +12,7 @@ import { IUser } from '../../shared/interfaces/user';
 export class LoginComponent {
 
   token: string = '';
+  errorMessage: string = '';
 
   constructor(
     private userSerice: UserService,
@@ -19,6 +20,12 @@ export class LoginComponent {
   ) { }
 
   login(form: NgForm): void {
+    this.errorMessage = '';
+    if (form.invalid) {
+      this.errorMessage = 'Place write login form.'
+      return
+    }
+    this.errorMessage = '';
     const { email, password } = form.value;
 
     this.userSerice.login({ email, password }).subscribe({
@@ -29,6 +36,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.log(err, 'error')
+        this.errorMessage=err.error.message
       }
     })
   }

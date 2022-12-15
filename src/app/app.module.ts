@@ -13,11 +13,13 @@ import { TripsModule } from './components/trips/trips.module';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 import { CommentService } from './services/comment.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
     
   ],
   imports: [

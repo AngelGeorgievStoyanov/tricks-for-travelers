@@ -30,10 +30,23 @@ export class TripEditComponent {
     const id = this.activateRoute.snapshot.params;// activateRoute.snapshot.params['tripId'] ------- not work?!?
     const tripId = Object.values(id)[0]
 
-    this.tripService.getTripById(tripId).subscribe((data) => {
-      this.trip = data
-    })
+    this.tripService.getTripById(tripId).subscribe({
+      next: (data) => {
+        if (data) {
+         
+          this.trip = data
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+        if(err){
+          this.router.navigate(['/not-found'])
+        }
+      }
+    } )
   }
+   
+  
 
 
   editTrip(form: NgForm) {
@@ -47,6 +60,9 @@ export class TripEditComponent {
       },
       error:(err)=>{
         console.log(err)
+        if(err){
+          this.router.navigate(['/not-found'])
+        }
       }
     })
   }

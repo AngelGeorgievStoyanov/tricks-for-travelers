@@ -9,28 +9,39 @@ import { IUser } from '../../shared/interfaces/user';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent  {
+export class RegisterComponent {
 
-  
+
   form: FormGroup;
 
   token: string = '';
+  errorMessage: string = '';
 
-  constructor( private fb: FormBuilder,
+
+  constructor(private fb: FormBuilder,
     private userService: UserService,
     private router: Router) {
 
-    this.form = this.fb.group({      
+    this.form = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmpass: ['', [Validators.required]]
-    });
-    
+    },
+    {
+      validators:this.dontMantch('password','confirmpass')
+    }
+    );
+
+
   }
 
   register(): void {
+    this.errorMessage = '';
+    if (this.form.invalid) {
+      this.errorMessage = 'Place write register form.'
+      return
+    }
 
-    
     this.userService.register(this.form.value).subscribe({
       next: (user) => {
         this.token = user.accessToken;
@@ -39,9 +50,10 @@ export class RegisterComponent  {
       },
       error: (err) => {
         console.log(err, 'error')
+        this.errorMessage = err.error.message;
       }
     })
-   
+
   }
 
   private setSession(user: IUser) {
@@ -51,5 +63,32 @@ export class RegisterComponent  {
     localStorage.setItem('accessToken', user.accessToken);
 
   }
+
+
+
+  get f() {
+    return this.form.controls
+  }
+
+
+  dontMantch(password: any, confirmpass: any) {
+
+    return (formGroup: FormGroup) => {
+
+      const passwordControl = formGroup.controls[password]
+      const confirmpassControl = formGroup.controls[confirmpass]
+
+      if (confirmpassControl.errors && !confirmpassControl.errors['dontMantch']) {
+        return;
+      }
+
+      if(passwordControl.value !==confirmpassControl.value){
+        confirmpassControl.setErrors({dontMantch:true})
+      }else{
+        confirmpassControl.setErrors(null)
+      }
+    }
+  }
+
 
 }

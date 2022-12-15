@@ -30,18 +30,30 @@ export class TripDetailsComponent {
     const id = this.activateRoute.snapshot.params['tripId'];
 
 
-    this.tripService.getTripById(id).subscribe((data) => {
-      if (data) {
-        this.trip = data
-
+    this.tripService.getTripById(id).subscribe({
+      next: (data) => {
+        if (data) {
+         
+          this.trip = data
+        }
+      },
+      error:(err)=>{
+        console.log(err)
+        if(err){
+          this.router.navigate(['/not-found'])
+        }
       }
-    })
+    }
+
+     
+
+    )
   }
 
 
   delTrip(id: string): void {
     this.tripService.deleteTripById(id).subscribe({
-      next:()=>{
+      next: () => {
         this.router.navigate(['/trips'])
       }
     })
@@ -79,9 +91,9 @@ export class TripDetailsComponent {
   }
 
 
-  addComment(tripId: string ) {
-    if(this.user===undefined){
-      const userId = localStorage.getItem('userId') ? localStorage.getItem('userId'): ''
+  addComment(tripId: string) {
+    if (this.user === undefined) {
+      const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : ''
       this.router.navigate([`/comments/add-comment/${tripId}`])
     }
   }
