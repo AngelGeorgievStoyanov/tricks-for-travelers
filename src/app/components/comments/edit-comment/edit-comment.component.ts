@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'console';
 import { CommentService } from 'src/app/services/comment.service';
 import { IComment } from '../../shared/interfaces/user';
 
@@ -10,6 +11,9 @@ import { IComment } from '../../shared/interfaces/user';
   styleUrls: ['./edit-comment.component.css']
 })
 export class EditCommentComponent {
+
+
+  errorMessage: string | undefined
 
 
   comment: IComment | undefined
@@ -47,7 +51,11 @@ export class EditCommentComponent {
   }
 
   editComment(form:NgForm){
-
+    console.log(form.value.comment.length<3)
+if(form.value.comment.length<3){
+  this.errorMessage='Comment must be at least 3 characters!';
+  return;
+}
     const id = this.activateRoute.snapshot.params['commentId'];// activateRoute.snapshot.params['commentId'] ------- not work?!?
 
     this.commentService.editCommentById(id,form.value).subscribe({

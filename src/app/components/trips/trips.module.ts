@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TripService } from 'src/app/services/trip.service';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
+import { MyTripsComponent } from './my-trips/my-trips.component';
 
 
 
@@ -15,7 +16,8 @@ import { TripEditComponent } from './trip-edit/trip-edit.component';
     TripsAllComponent,   
     TripCreateComponent, 
     TripDetailsComponent, 
-    TripEditComponent
+    TripEditComponent,
+     MyTripsComponent
 
 
   ],

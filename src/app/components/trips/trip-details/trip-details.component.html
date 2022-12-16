@@ -1,17 +1,38 @@
-<p>trip-details works!</p>
+
 
 <section class="section-details">
-    <h2>Trip name : {{trip?.title}}</h2>
-    <p>Description : {{trip?.description}}</p>
-    <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
-    <button [routerLink]="['/trips/edit/',trip?._id ]">Edit</button>
-   
-    <button (click)="delTrip(trip!._id)">Delete</button>
-    <button (click)="like(trip!._id)" >LIKE</button>
-    <button [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
 
- 
+    <article class="article-details">
 
-  
+        <h2 class="info">Trip name : {{trip?.title}}</h2>
+        <h4 class="info">Price of the Trip: {{trip?.price}} euro </h4>
+        <h4 class="info">Transport with: {{trip?.transport}}</h4>
+        <h4 class="info">Coun of people: {{trip?.countPeoples}}</h4>
+        <h4 class="info">Type of the group: {{trip?.typeOfPeople}}</h4>
+        <h4 class="info">Destination: {{trip?.destination}}</h4>
+        <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
+        <p>Description : {{trip?.description}}</p>
+        
+        
+        <div *ngIf="trip?._ownerId===userId" class="owner-buttons">
+            <button class="Btn" [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
+            <button class="Btn" [routerLink]="['/trips/edit/',trip?._id ]">EDIT TRIP</button>
+            <button class="Btn" (click)="delTrip(trip!._id)">DELETE TRIP</button>
+        </div>
+        
+    <div *ngIf="userId&&(trip?._ownerId!==userId)" class="user-buttons">
+        <button class="Btn" [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
+        <ng-container *ngIf="isLiked?.includes(userId)">
+            <button disabled>LIKE TRIP</button>
+        </ng-container>
+        <ng-container *ngIf="!isLiked?.includes(userId)">
+            <button class="Btn"  id="btnLike" (click)="like(trip!._id)">LIKE TRIP</button>
+        </ng-container>
+    </div>
+    
+    <p>{{trip?._ownerId}}</p>
+    <p>{{userId}}----</p>
+</article>
+
 
 </section>

@@ -40,5 +40,14 @@ export class CommentService {
 
     }
 
+    deleteCommentByOwnerId(ownerId:string){
+       
+        return this.http.delete<IComment>(`${apiURL}/data/comments/trip/${ownerId}`)
+    }
+
+    getAllMyComments(ownerId:string){
+
+        return this.http.get<IComment>(`${apiURL}/data/comments/my-comments/${ownerId}`)
+    }
 
 }

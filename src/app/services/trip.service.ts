@@ -34,4 +34,8 @@ export class TripService{
         return this.http.delete<ITrip>(`${apiURL}/data/trips/${id}`)
     }
 
+    getAllMyTrips(ownerId:string){
+        return this.http.get<ITrip[]>(`${apiURL}/data/trips/my-trips/${ownerId}`)
+    }
+
 }

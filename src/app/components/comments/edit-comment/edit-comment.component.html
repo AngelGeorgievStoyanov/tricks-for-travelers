@@ -4,10 +4,12 @@
     <section class="section-edit-comment">
 
         <form id="form" #form="ngForm" class="form-edit-comment" method="PUT" (ngSubmit)="editComment(form)">
+            <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>        
             <label for="comment">Comment</label>
-            <textarea name="comment" id="comment" cols="20" rows="4"  [(ngModel)]="comment!.comment" ngModel></textarea>
-            <button>EDIT COMMENT</button>
-            <button (click)="back()">BACK</button>
+            <textarea name="comment" id="comment" cols="20" rows="4"  [(ngModel)]="comment!.comment" ngModel  minlength="3"></textarea>
+            
+            <button class="btnEdit"  >EDIT COMMENT</button>
+            <button  class="btnEdit" (click)="back()">BACK</button>
         </form>
     </section>
 </div>

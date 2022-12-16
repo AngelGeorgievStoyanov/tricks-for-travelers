@@ -35,8 +35,7 @@ export class UserService {
                 // TODO ? localStorage.setItem(`${user._id}`, JSON.stringify(user))
 
                 this.user = user
-                console.log(user,'---seer--'),
-                console.log(this.isLogged,'--isloged---')
+              
             })
 
         );
@@ -49,8 +48,7 @@ export class UserService {
         return this.http.post<IUser>(`${apiURL}/users/logout`, data, { withCredentials: false }).pipe(
             tap(() =>{
 
-                console.log(this.user,'---user--'),
-                console.log(this.isLogged,'--isloged---'),
+              
                 this.user = null})
             
         )

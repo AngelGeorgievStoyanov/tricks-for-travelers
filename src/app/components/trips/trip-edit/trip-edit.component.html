@@ -1,5 +1,5 @@
 
-<div class="div-edit-trip">
+<!-- <div class="div-edit-trip">
     <section class="sectiom-edit-trip">
         <form class="form-edit-trip" #form="ngForm" method="PUT" (ngSubmit)="editTrip(form)">
             <h2>EDIT YOUR TRIP</h2>
@@ -12,8 +12,53 @@
             <input [(ngModel)]="trip!.imageUrl" ngModel type="text" name="imageUrl"  >
             <button>EDIT</button>
         </form>
-    </section>
+    </section> -->
 
     
  
+<!-- </div> -->
+<div>
+    <section class="sectiom-edit-trip">
+        <form #form="ngForm" class="form-edit-trip"  method="PUT" (ngSubmit)="editTrip(form)">
+            <h2>EDIT YOUR TRIP</h2>
+            <label for="title">TITLE :
+                <input  type="text" name="title"  [(ngModel)]="trip!.title" ngModel>
+            </label>
+            <label for="price">PRICE :
+                <input type="number" name="price"  [(ngModel)]="trip!.price" ngModel>
+            </label>
+
+            <label for="transport">TRANSPORT WITH :
+                <select name="transport" id=""   [(ngModel)]="trip!.transport" ngModel >
+                    <option value="Car">Car</option>
+                    <option value="Bus">Bus</option>
+                    <option value="Aircraft">Aircraft</option>
+                    <option value="Another type">Another type</option>
+                </select>
+            </label>
+
+            <label for="countPeoples">COUNT OF PEOPLE :
+                <input type="number" name="countPeoples"    [(ngModel)]="trip!.countPeoples" ngModel >
+            </label>
+            <label for="typeOfPeople"> TYPE OF THE GROUP :
+                <select name="typeOfPeople" id=""   [(ngModel)]="trip!.typeOfPeople" ngModel>
+                    <option value="Family">Family</option>
+                    <option value="Family with children">Family with children</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Another type">Another type</option>
+                </select>
+
+            </label>
+            <label for="destination">DESTINATION :
+                <input type="text" name="destination"  [(ngModel)]="trip!.destination" ngModel>
+            </label>
+
+            <label for="description">Description</label>
+            <textarea  name="description" id="" cols="40" rows="7"  [(ngModel)]="trip!.description" ngModel></textarea>
+            <label for="imageUrl">imageUrl :
+                <input  type="text" name="imageUrl"  [(ngModel)]="trip!.imageUrl" ngModel>
+            </label>
+            <button class="edit-trip">EDIT</button>
+        </form>
+    </section>
 </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommentService } from 'src/app/services/comment.service';
+import { TripService } from 'src/app/services/trip.service';
 import { UserService } from 'src/app/services/user.service';
+import { ITrip } from '../../shared/interfaces/user';
 
 @Component({
   selector: 'app-add-comment',
@@ -31,27 +33,35 @@ export class AddCommentComponent {
       return ''
     }
   }
-
+  errorMessage: string | undefined
+  title: string | undefined
+  trip: any = {}
   form: FormGroup
   constructor(private fb: FormBuilder,
     private userService: UserService,
     private activateRoute: ActivatedRoute,
     private commentService: CommentService,
-    private router: Router) {
+    private router: Router,
+    private tripService: TripService) {
+
 
 
     this.form = this.fb.group({
-      comment: [''],
+      comment: ['' ,[Validators.required]],
       _ownerId: this.userId,
       nameAuthor: this.nameAuthor,
-      _tripId: this.activateRoute.snapshot.params['tripId']
+      _tripId: this.activateRoute.snapshot.params['tripId'],
+
 
     })
   }
 
 
   addcoment(): void {
-
+    if (this.form.invalid) {
+      this.errorMessage = 'Pleace write a comment'
+      return
+    }
     const id = this.activateRoute.snapshot.params['tripId'];
 
     this.commentService.createComment(this.form.value).subscribe({

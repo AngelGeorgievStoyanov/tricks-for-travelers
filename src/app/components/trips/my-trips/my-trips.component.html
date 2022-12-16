@@ -1,5 +1,5 @@
-<main id="main" class="main">
 
+<div class="my-trips">
     <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
         <div class="trip-div">
             <li class="trip-item">
@@ -9,10 +9,8 @@
                     trip.description}}</p>
                 <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
                 <p *ngIf="trip.likes.length>0">LIKES : {{trip.likes.length}}</p>
-                <button class="btnDetails" *ngIf="local" [routerLink]="['/trips/details/',trip._id ]">Details</button>
+                <button class="btnDetails" *ngIf="userId" [routerLink]="['/trips/details/',trip._id ]">Details</button>
             </li>
         </div>
-
     </section>
-
-</main>
+</div>
