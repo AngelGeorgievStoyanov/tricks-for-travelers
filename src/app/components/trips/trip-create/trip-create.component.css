@@ -19,20 +19,64 @@
     height: 550px;
     justify-content: space-around;
     padding-right: 40px;
-    background-color: #8d868629;   
+    background-color: #8d868629;
     box-shadow: 3px 2px 5px black;
 }
 
-.btnAdd{
+.btnAdd {
     cursor: pointer;
     margin: 0 10px;
 }
 
-.error{
+.error {
     color: red;
     margin: 0;
     font-size: 20px;
-    background-color:#000000b0;
+    background-color: #000000b0;
     padding: 0 5px;
+
+}
+
+
+
+@media(max-width:600px) {
+    .form-add-trip{
+        width: 90%;
+        height: 80vh;
+        padding-right: 10px;
+    }
+
+
+    label{
+        font-size: 25px;
+     }
+
+     
+        .btnAdd{
+            padding: 5px 50px;
+        }
+    
+ 
+}
+
+@media(max-width:400px) {
+
   
+
+    .form-add-trip{
+        width: 100%;
+        height: 100vh;
+        padding-right: 5px;
+    }
+
+    label{
+       font-size: 21px;
+    }
+
+    .btnAdd{
+        padding: 8px 36px;
+    }
+
+
+
 }

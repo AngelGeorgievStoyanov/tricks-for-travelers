@@ -24,7 +24,7 @@
     border-radius: 12px;
     margin: 20px;
     padding: 20px;
-    background-color: #8d868670;   
+    background-color: #8d868670;
     box-shadow: 3px 2px 5px black;
 }
 
@@ -52,3 +52,36 @@
     cursor: pointer;
     padding: 2px 17px;
 }
+
+
+
+@media(max-width:600px) {
+    .section-trip {
+        max-width: 500px;
+        min-width: 400px;
+        margin: 5px;
+    }
+
+    .trip-item {
+        margin: 0;
+
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .trip-item-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    .btnDetails{
+        margin: 5px;
+        padding: 5px 45px;
+    }
+
+
+}
+
+
