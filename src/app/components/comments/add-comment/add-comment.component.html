@@ -10,7 +10,7 @@
             <textarea  name="comment"  id="comment" cols="20" rows="4"
             formControlName="comment" minlength="3" ></textarea>
             <p *ngIf="form.get('comment')?.errors?.['minlength']" class="error">
-                Comment must be at least 3 characters!
+                Comment must be at least 3  characters!
             </p>
             <button class="add-comment">ADD</button>
         </form>

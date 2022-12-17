@@ -12,10 +12,10 @@
                     Title is required!
                 </p>
                 <p *ngIf="form.get('title')?.errors?.['minlength']" class="error">
-                    Title should be more 3 characters
+                    Title should be more than 3 characters
                 </p>
                 <p *ngIf="form.get('title')?.errors?.['maxlength']" class="error">
-                    Title should be max 30
+                    Title should be max 30 characters
                 </p>
             </ng-container>
             <label for="price">PRICE :
@@ -40,7 +40,7 @@
             </label>
             <ng-container *ngIf="form.get('transport')?.touched">
                 <p *ngIf="form.get('transport')?.errors?.['required']" class="error">
-                    Pleace chois transport!
+                    Please choose transport!
                 </p>
             </ng-container>
 
@@ -71,7 +71,7 @@
 
             <ng-container *ngIf="form.get('typeOfPeople')?.touched">
                 <p *ngIf="form.get('typeOfPeople')?.errors?.['required']" class="error">
-                    Pleace chois type Of GROUP!
+                    Please choose type Of GROUP!
                 </p>
             </ng-container>
             <label for="destination">DESTINATION :
@@ -82,7 +82,7 @@
                     Destination is required!
                 </p>
                 <p *ngIf="form.get('destination')?.errors?.['minlength']" class="error">
-                    Destination should be more 3 characters
+                    Destination should be more than 3 characters
                 </p>
                 <p *ngIf="form.get('destination')?.errors?.['maxlength']" class="error">
                     Destination should be max 30 characters
@@ -97,7 +97,7 @@
                     Description is required!
                 </p>
                 <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
-                    Description should be more 3 characters
+                    Description should be more than 3 characters
                 </p>
                 <p *ngIf="form.get('description')?.errors?.['maxlength']" class="error">
                     Description should be max 150 characters

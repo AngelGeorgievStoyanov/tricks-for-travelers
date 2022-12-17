@@ -52,7 +52,7 @@ export class TripEditComponent {
   editTrip(form: NgForm) {
 
     if (form.invalid) {
-      this.errorMessage = 'Plece write edit form'
+      this.errorMessage = 'All field are required'
       return
     }
 

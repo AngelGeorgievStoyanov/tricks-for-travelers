@@ -58,7 +58,7 @@ export class TripCreateComponent {
   addTrip(): void {
 
     if(this.form.invalid){
-      this.errorMessage='Plece write add form'
+      this.errorMessage='All field are required.'
       return
     }
 

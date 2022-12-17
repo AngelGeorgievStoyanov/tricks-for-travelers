@@ -1,4 +1,20 @@
 <section class="home-section">
     <h1>TOP 5 TRIPS</h1>
-    <h1>TOP 5 COMMENTS</h1>
+    <article class="top-trips">
+        <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
+            <div class="trip-div">
+                <li class="trip-item">
+                    <h2>Title of the trip : {{trip.title}}</h2>
+                    <h3>Destination of the trip : {{trip.destination}}</h3>
+                    <p>Short description : {{trip.description.length > 50 ? trip.description.substring(0,50) +'...':
+                        trip.description}}</p>
+                    <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
+                    <p *ngIf="trip.likes.length>0">LIKES : {{trip.likes.length}}</p>
+                    <button class="btnDetails" *ngIf="local"
+                        [routerLink]="['/trips/details/',trip._id ]">Details</button>
+                </li>
+            </div>
+
+        </section>
+    </article>
 </section>

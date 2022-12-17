@@ -1,5 +1,11 @@
+<div class="div-no-trips" *ngIf="trips?.length===0">
+    <h1>You dont't have a published trip yet.</h1>
+    <button class="btnAdd" routerLink="/trips/add-new-trip">CLICK HERE AN ADD YOUR FIRST TRIP</button>
+</div>
 
+<h1 style="display: flex; justify-content: center;">These are your trips</h1>
 <div class="my-trips">
+
     <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
         <div class="trip-div">
             <li class="trip-item">

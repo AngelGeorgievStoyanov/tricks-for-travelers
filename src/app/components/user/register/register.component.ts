@@ -38,7 +38,7 @@ export class RegisterComponent {
   register(): void {
     this.errorMessage = '';
     if (this.form.invalid) {
-      this.errorMessage = 'Place write register form.'
+      this.errorMessage = 'All field are required'
       return
     }
 

@@ -22,7 +22,7 @@ export class LoginComponent {
   login(form: NgForm): void {
     this.errorMessage = '';
     if (form.invalid) {
-      this.errorMessage = 'Place write login form.'
+      this.errorMessage = 'All field are required'
       return
     }
     this.errorMessage = '';

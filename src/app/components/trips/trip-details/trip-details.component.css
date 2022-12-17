@@ -1,20 +1,20 @@
 .section-details{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    min-height: 100vh;
-   
-   
+    min-height: 100vh;   
+    justify-content: space-between;
 }
 
 
 .section-details-img{
-    width: 200px;
-    height: 200px;
+    max-width: 1000px;
+    max-height: 800px;
 }
 
 .article-details{
-    width: 330px;
+   min-width: 300px;
+   max-width: 330px;
     display: flex;
     flex-direction: column;
     align-items: center;

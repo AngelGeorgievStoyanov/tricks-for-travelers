@@ -1,5 +1,3 @@
-
-
 <section class="section-details">
 
     <article class="article-details">
@@ -10,28 +8,34 @@
         <h4 class="info">Coun of people: {{trip?.countPeoples}}</h4>
         <h4 class="info">Type of the group: {{trip?.typeOfPeople}}</h4>
         <h4 class="info">Destination: {{trip?.destination}}</h4>
-        <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
         <p>Description : {{trip?.description}}</p>
-        
-        
+
+
         <div *ngIf="trip?._ownerId===userId" class="owner-buttons">
             <button class="Btn" [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
             <button class="Btn" [routerLink]="['/trips/edit/',trip?._id ]">EDIT TRIP</button>
             <button class="Btn" (click)="delTrip(trip!._id)">DELETE TRIP</button>
+            <button class="Btn" [routerLink]="['/trips']">BACK</button>
         </div>
-        
-    <div *ngIf="userId&&(trip?._ownerId!==userId)" class="user-buttons">
-        <button class="Btn" [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
-        <ng-container *ngIf="isLiked?.includes(userId)">
-            <button disabled>LIKE TRIP</button>
-        </ng-container>
-        <ng-container *ngIf="!isLiked?.includes(userId)">
-            <button class="Btn"  id="btnLike" (click)="like(trip!._id)">LIKE TRIP</button>
-        </ng-container>
-    </div>
-    
-   
-</article>
+
+        <div *ngIf="userId&&(trip?._ownerId!==userId)" class="user-buttons">
+            <button class="Btn" [routerLink]="['/comments/add-comment/',trip?._id ]">ADD COMMENT</button>
+            <ng-container *ngIf="isLiked?.includes(userId)">
+                <button disabled>LIKE TRIP</button>
+            </ng-container>
+            <ng-container *ngIf="!isLiked?.includes(userId)">
+                <button class="Btn" id="btnLike" (click)="like(trip!._id)">LIKE TRIP</button>
+            </ng-container>
+            <button class="Btn" [routerLink]="['/trips']">BACK</button>
+
+        </div>
+
+
+    </article>
+    <article>
+        <img class="section-details-img" src={{trip?.imageUrl}} alt="Trip">
+
+    </article>
 
 
 </section>

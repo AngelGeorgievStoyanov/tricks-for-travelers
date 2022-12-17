@@ -38,4 +38,9 @@ export class TripService{
         return this.http.get<ITrip[]>(`${apiURL}/data/trips/my-trips/${ownerId}`)
     }
 
+    getTopTrips(){
+        console.log('tuk')
+        return this.http.get<ITrip[]>(`${apiURL}/data/trips/top`,{withCredentials:false})
+    }
+
 }

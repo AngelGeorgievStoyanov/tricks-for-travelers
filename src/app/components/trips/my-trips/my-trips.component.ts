@@ -37,7 +37,7 @@ export class MyTripsComponent {
         next: (data) => {
 
           this.trips = Object.values(data)
-
+console.log(this.trips)
         }
       })
 

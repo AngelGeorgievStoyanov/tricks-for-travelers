@@ -1,5 +1,10 @@
 .my-trips{
     min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: space-around;
 }
 
 
@@ -25,5 +30,16 @@
 .trip-item-image{
     width: 200px;
     height: 200px;
+}
+
+.div-no-trips{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.btnAdd{
+    cursor: pointer;
 }
 
