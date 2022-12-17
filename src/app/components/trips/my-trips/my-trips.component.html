@@ -1,22 +1,27 @@
-<div class="div-no-trips" *ngIf="trips?.length===0">
-    <h1>You dont't have a published trip yet.</h1>
-    <button class="btnAdd" routerLink="/trips/add-new-trip">CLICK HERE AN ADD YOUR FIRST TRIP</button>
-</div>
+<div class="div-my-trips">
 
-<h1 style="display: flex; justify-content: center;">These are your trips</h1>
-<div class="my-trips">
+    <div class="div-no-trips" *ngIf="trips?.length===0">
+        <h1>You dont't have a published trip yet.</h1>
+        <button class="btnAdd" routerLink="/trips/add-new-trip">CLICK HERE AN ADD YOUR FIRST TRIP</button>
+    </div>
+    <div class="div-h1">
+        <h1>These are your trips</h1>
+    </div>
+    <div class="my-trips">
 
-    <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
-        <div class="trip-div">
-            <li class="trip-item">
-                <h2>Title of the trip : {{trip.title}}</h2>
-                <h3>Destination of the trip : {{trip.destination}}</h3>
-                <p>Short description : {{trip.description.length > 50 ? trip.description.substring(0,50) +'...':
-                    trip.description}}</p>
-                <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
-                <p *ngIf="trip.likes.length>0">LIKES : {{trip.likes.length}}</p>
-                <button class="btnDetails" *ngIf="userId" [routerLink]="['/trips/details/',trip._id ]">Details</button>
-            </li>
-        </div>
-    </section>
+        <section class="section-trip" *ngFor="let trip of trips" id={{trip._id}}>
+            <div class="trip-div">
+                <li class="trip-item">
+                    <h2>Title of the trip : {{trip.title}}</h2>
+                    <h3>Destination of the trip : {{trip.destination}}</h3>
+                    <p>Short description : {{trip.description.length > 50 ? trip.description.substring(0,50) +'...':
+                        trip.description}}</p>
+                    <img class="trip-item-image" src={{trip.imageUrl}} alt="Trip">
+                    <p *ngIf="trip.likes.length>0">LIKES : {{trip.likes.length}}</p>
+                    <button class="btnDetails" *ngIf="userId"
+                        [routerLink]="['/trips/details/',trip._id ]">Details</button>
+                </li>
+            </div>
+        </section>
+    </div>
 </div>

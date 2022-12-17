@@ -1,12 +1,21 @@
 #div-add-coment{
+    display: flex;
     min-height: 100vh;
+    background-image: url("../../../utils/aram-ayoub-UQipRR8nYlw-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .section-add-comment{
     display: flex;
    justify-content: center;
-   margin-top: 50px;
+  
 }
+
 
 .form-add-comment{
     display: flex;
@@ -17,6 +26,8 @@
     padding: 20px;
     height: 202px;
     width: 260px;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
  
 }
 
@@ -27,5 +38,9 @@
 
 .error{
     color: red;
-   
+    margin: 0;
+    font-size: 20px;
+    background-color: #0000008a;
+    padding: 0 5px;
+  
 }

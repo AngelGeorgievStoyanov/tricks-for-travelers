@@ -4,6 +4,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-image: url("../../../utils/joshua-sukoff-vHUPyTPPMxk-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -13,11 +17,14 @@
     flex-direction: column;
     align-items: center;
     border: 2px black solid;
-    border-radius: 5px;
+    border-radius: 12px;
     padding: 10px;
     width: 50%;
     height: 550px;
     justify-content: space-around;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
+
 }
 
 .register-input {
@@ -25,6 +32,8 @@
     padding: 5px;
     border-radius: 5px;
     width: 65%;
+  
+   
 }
 
 #register-form {
@@ -38,6 +47,8 @@
 .btnSubmit {
     width: 50%;
     cursor: pointer;
+    background-color:#181616bd;
+    color: white;
 }
 
 #a {
@@ -48,7 +59,9 @@
 .error{
     color: red;
     font-size: 20px;
-  
+    background-color: #0000008a;
+    padding: 0 5px;
+    margin: 0;
 }
 
 span{

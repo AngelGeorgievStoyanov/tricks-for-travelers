@@ -1,117 +1,117 @@
-<div>
-    <section class="sectiom-create-trip">
-
-        <form [formGroup]="form" class="form-add-trip" method="POST" (ngSubmit)="addTrip()">
-            <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
-            <h2>ADD NEW TRIP</h2>
-            <label for="title">TITLE :
-                <input type="text" name="title" minlength="3" maxlength="30" formControlName="title">
-            </label>
-            <ng-container *ngIf="form.get('title')?.touched">
-                <p *ngIf="form.get('title')?.errors?.['required']" class="error">
-                    Title is required!
+<section class="sectiom-create-trip">
+    <form [formGroup]="form" class="form-add-trip" method="POST" (ngSubmit)="addTrip()">
+        <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+        <h2>ADD NEW TRIP</h2>
+        <label for="title">TITLE :
+            <input type="text" name="title" minlength="3" maxlength="30" formControlName="title">
+        </label>
+        <ng-container *ngIf="form.get('title')?.touched">
+            <p *ngIf="form.get('title')?.errors?.['required']" class="error">
+                Title is required!
+            </p>
+            <p *ngIf="form.get('title')?.errors?.['minlength']" class="error">
+                Title should be more than 3 characters
+            </p>
+            <p *ngIf="form.get('title')?.errors?.['maxlength']" class="error">
+                Title should be max 30 characters
+            </p>
+        </ng-container>
+        <label for="price">PRICE :
+            <input type="number" name="price" min="0.1" formControlName="price">
+            <ng-container *ngIf="form.get('price')?.touched">
+                <p *ngIf="form.get('price')?.errors?.['required']" class="error">
+                    Price is required!
                 </p>
-                <p *ngIf="form.get('title')?.errors?.['minlength']" class="error">
-                    Title should be more than 3 characters
-                </p>
-                <p *ngIf="form.get('title')?.errors?.['maxlength']" class="error">
-                    Title should be max 30 characters
-                </p>
-            </ng-container>
-            <label for="price">PRICE :
-                <input type="number" name="price" min="0.1" formControlName="price">
-                <ng-container *ngIf="form.get('price')?.touched">
-                    <p *ngIf="form.get('price')?.errors?.['required']" class="error">
-                        Price is required!
-                    </p>
-                    <p *ngIf="form.get('price')?.errors?.['min']" class="error">
-                        Price must be positive number
-                    </p>
-                </ng-container>
-            </label>
-
-            <label for="transport">TRANSPORT WITH :
-                <select name="transport" id="" formControlName="transport">
-                    <option value="Car">Car</option>
-                    <option value="Bus">Bus</option>
-                    <option value="Aircraft">Aircraft</option>
-                    <option value="Another type">Another type</option>
-                </select>
-            </label>
-            <ng-container *ngIf="form.get('transport')?.touched">
-                <p *ngIf="form.get('transport')?.errors?.['required']" class="error">
-                    Please choose transport!
+                <p *ngIf="form.get('price')?.errors?.['min']" class="error">
+                    Price must be positive number
                 </p>
             </ng-container>
+        </label>
 
-            <label for="countPeoples">COUNT OF PEOPLE :
-                <input type="number" name="countPeoples" min="1" pattern="[0-9]" formControlName="countPeoples">
-            </label>
+        <label for="transport">TRANSPORT WITH :
+            <select name="transport" id="" formControlName="transport">
+                <option value="Car">Car</option>
+                <option value="Bus">Bus</option>
+                <option value="Aircraft">Aircraft</option>
+                <option value="Another type">Another type</option>
+            </select>
+        </label>
+        <ng-container *ngIf="form.get('transport')?.touched">
+            <p *ngIf="form.get('transport')?.errors?.['required']" class="error">
+                Please choose transport!
+            </p>
+        </ng-container>
 
-            <ng-container *ngIf="form.get('countPeoples')?.touched">
-                <p *ngIf="form.get('countPeoples')?.errors?.['required']" class="error">
-                    Count of peoples is required!
-                </p>
-                <p *ngIf="form.get('countPeoples')?.errors?.['pattern']" class="error">
-                    Count of peoples must be intiger number
-                </p>
-                <p *ngIf="form.get('countPeoples')?.errors?.['min']" class="error">
-                    Count of peoples must be positive number
-                </p>
-            </ng-container>
-            <label for="typeOfPeople"> TYPE OF THE GROUP :
-                <select name="typeOfPeople" id="" formControlName="typeOfPeople">
-                    <option value="Family">Family</option>
-                    <option value="Family with children">Family with children</option>
-                    <option value="Friends">Friends</option>
-                    <option value="Another type">Another type</option>
-                </select>
+        <label for="countPeoples">COUNT OF PEOPLE :
+            <input type="number" name="countPeoples" min="1" pattern="[0-9]" formControlName="countPeoples">
+        </label>
 
-            </label>
+        <ng-container *ngIf="form.get('countPeoples')?.touched">
+            <p *ngIf="form.get('countPeoples')?.errors?.['required']" class="error">
+                Count of peoples is required!
+            </p>
+            <p *ngIf="form.get('countPeoples')?.errors?.['pattern']" class="error">
+                Count of peoples must be intiger number
+            </p>
+            <p *ngIf="form.get('countPeoples')?.errors?.['min']" class="error">
+                Count of peoples must be positive number
+            </p>
+        </ng-container>
+        <label for="typeOfPeople"> TYPE OF THE GROUP :
+            <select name="typeOfPeople" id="" formControlName="typeOfPeople">
+                <option value="Family">Family</option>
+                <option value="Family with children">Family with children</option>
+                <option value="Friends">Friends</option>
+                <option value="Another type">Another type</option>
+            </select>
 
-            <ng-container *ngIf="form.get('typeOfPeople')?.touched">
-                <p *ngIf="form.get('typeOfPeople')?.errors?.['required']" class="error">
-                    Please choose type Of GROUP!
-                </p>
-            </ng-container>
-            <label for="destination">DESTINATION :
-                <input type="text" name="destination" minlength="3" maxlength="30" formControlName="destination">
-            </label>
-            <ng-container *ngIf="form.get('destination')?.touched">
-                <p *ngIf="form.get('destination')?.errors?.['required']" class="error">
-                    Destination is required!
-                </p>
-                <p *ngIf="form.get('destination')?.errors?.['minlength']" class="error">
-                    Destination should be more than 3 characters
-                </p>
-                <p *ngIf="form.get('destination')?.errors?.['maxlength']" class="error">
-                    Destination should be max 30 characters
-                </p>
-            </ng-container>
+        </label>
 
-            <label for="description">Description</label>
-            <textarea name="description" id="" cols="38" rows="4" minlength="3" maxlength="150"
-                formControlName="description"></textarea>
-            <ng-container *ngIf="form.get('description')?.touched">
-                <p *ngIf="form.get('description')?.errors?.['required']" class="error">
-                    Description is required!
-                </p>
-                <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
-                    Description should be more than 3 characters
-                </p>
-                <p *ngIf="form.get('description')?.errors?.['maxlength']" class="error">
-                    Description should be max 150 characters
-                </p>
-            </ng-container>
-            <label for="imageUrl">Image Url :
-                <input type="text" name="imageUrl"   formControlName="imageUrl">
-            </label>
-            <ng-container *ngIf="m['imageUrl'].touched">                             
-                <p *ngIf="m['imageUrl'].errors?.['required']" class="error">
-                    Image Url is required!
-                </p>                             
-            </ng-container>
-            <button class="btnAdd">ADD</button>
-        </form>
-    </section>
-</div>
+        <ng-container *ngIf="form.get('typeOfPeople')?.touched">
+            <p *ngIf="form.get('typeOfPeople')?.errors?.['required']" class="error">
+                Please choose type Of GROUP!
+            </p>
+        </ng-container>
+        <label for="destination">DESTINATION :
+            <input type="text" name="destination" minlength="3" maxlength="30" formControlName="destination">
+        </label>
+        <ng-container *ngIf="form.get('destination')?.touched">
+            <p *ngIf="form.get('destination')?.errors?.['required']" class="error">
+                Destination is required!
+            </p>
+            <p *ngIf="form.get('destination')?.errors?.['minlength']" class="error">
+                Destination should be more than 3 characters
+            </p>
+            <p *ngIf="form.get('destination')?.errors?.['maxlength']" class="error">
+                Destination should be max 30 characters
+            </p>
+        </ng-container>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="" cols="38" rows="4" minlength="3" maxlength="150"
+            formControlName="description"></textarea>
+        <ng-container *ngIf="form.get('description')?.touched">
+            <p *ngIf="form.get('description')?.errors?.['required']" class="error">
+                Description is required!
+            </p>
+            <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
+                Description should be more than 3 characters
+            </p>
+            <p *ngIf="form.get('description')?.errors?.['maxlength']" class="error">
+                Description should be max 150 characters
+            </p>
+        </ng-container>
+        <label for="imageUrl">Image Url :
+            <input type="text" name="imageUrl" formControlName="imageUrl">
+        </label>
+        <ng-container *ngIf="m['imageUrl'].touched">
+            <p *ngIf="m['imageUrl'].errors?.['required']" class="error">
+                Image Url is required!
+            </p>
+        </ng-container>
+        <span>
+            <button class="btnAdd">ADD TRIP</button>
+            <button class="btnAdd" routerLink='/trips'>BACK</button>
+        </span>
+    </form>
+</section>

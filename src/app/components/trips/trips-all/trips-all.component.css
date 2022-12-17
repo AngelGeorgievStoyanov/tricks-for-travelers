@@ -1,36 +1,41 @@
-.main{
+.main {
     display: flex;
     flex-wrap: wrap;
     min-height: 100vh;
     justify-content: space-evenly;
+    background-image: url("../../../utils/saif71-com-AB5NfD8PXcI-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
-.trip-item{
+.trip-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 20px;
-   
+
 }
 
-.section-trip{
-    max-width: 300px;    
+.section-trip {
+    max-width: 300px;
     border: solid 2px;
     border-radius: 12px;
-
     margin: 20px;
     padding: 20px;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
 }
 
-.trip-item-image{
+.trip-item-image {
     width: 200px;
     height: 200px;
 }
 
 
 #footer {
-   
+
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -43,7 +48,7 @@
 
 }
 
-.btnDetails{
+.btnDetails {
     cursor: pointer;
     padding: 2px 17px;
 }

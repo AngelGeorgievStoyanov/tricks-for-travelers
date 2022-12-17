@@ -1,5 +1,9 @@
 .home-section{
     min-height: 100vh;
+    background-image: url("../../../app/utils/roxanne-desgagnes-h4bBVo_CpqQ-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -18,6 +22,8 @@
 
     margin: 20px;
     padding: 20px;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
 }
 
 .trip-item-image{
@@ -28,4 +34,13 @@
 .top-trips{
     display: flex;
     flex-wrap: wrap;
+}
+
+h1{
+    margin: 0;
+}
+
+.div-h1{
+    display: flex;
+    justify-content: center;
 }

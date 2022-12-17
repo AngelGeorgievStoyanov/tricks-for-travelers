@@ -1,5 +1,23 @@
-# TricksForTravelers
+# TricksForTravelers - https://github.com/AngelGeorgievStoyanov/tricks-for-travelers
 
+## Angular project for SoftUni Angular course october 2022
+### Technologies used:
+* Angular
+* MongoDB + Mongoose
+* Express.js
+* Node.js
+* HTML & CSS
+
+### Functionality
+* Guest users can see Home page with TOP 5 TRIPS (HOME PAGE) most liked trips and page with ALL TRIPS, they wont't be able to see any comments.  
+* Logged users have extended functionality with option to create trips and comments, add/edit/delete trips and comments, they will only be able to like trips if they are not the owner,on MY-TRIPS page they will be able to see all their own trips, on profile page they can only see their own email for now.
+* Trips owners can edit and delete their trips.
+* Comments' owners can edit and delete their comments.
+
+
+# REST API - https://github.com/AngelGeorgievStoyanov/REST-API
+* To run server npm start
+* To run client app cd client and npm start
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
 ## Development server

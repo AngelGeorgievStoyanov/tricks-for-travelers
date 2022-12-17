@@ -21,6 +21,8 @@
     border: solid 1px black;
     border-radius: 9px;
     padding: 20px;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
 }
 
 .info{

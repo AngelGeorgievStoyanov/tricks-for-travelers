@@ -37,17 +37,18 @@ export class AddCommentComponent {
   title: string | undefined
   trip: any = {}
   form: FormGroup
+  tripId: string | undefined
   constructor(private fb: FormBuilder,
     private userService: UserService,
     private activateRoute: ActivatedRoute,
     private commentService: CommentService,
     private router: Router,
-    private tripService: TripService) {
+  ) {
 
-
+this.tripId=this.activateRoute.snapshot.params['tripId']
 
     this.form = this.fb.group({
-      comment: ['' ,[Validators.required]],
+      comment: ['', [Validators.required]],
       _ownerId: this.userId,
       nameAuthor: this.nameAuthor,
       _tripId: this.activateRoute.snapshot.params['tripId'],

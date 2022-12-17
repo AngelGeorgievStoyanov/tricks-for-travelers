@@ -1,10 +1,15 @@
 #profile{
     min-height: 100vh;
+
+    background-image: url("../../../utils/waldemar-brandt-3zml4wkcZis-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .profile{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+  
 }

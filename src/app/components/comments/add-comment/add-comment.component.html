@@ -1,19 +1,15 @@
-
-
-
 <div id="div-add-coment">
-    <section class="section-add-comment">
-
-        <form  [formGroup]="form" id="form" class="form-add-comment" method="POST" (ngSubmit)="addcoment()" >
-            <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
-            <label for="comment">Comment</label>
-            <textarea  name="comment"  id="comment" cols="20" rows="4"
-            formControlName="comment" minlength="3" ></textarea>
-            <p *ngIf="form.get('comment')?.errors?.['minlength']" class="error">
-                Comment must be at least 3  characters!
-            </p>
-            <button class="add-comment">ADD</button>
-        </form>
+    <section class="section-add-comment">       
+            <form [formGroup]="form" id="form" class="form-add-comment" method="POST" (ngSubmit)="addcoment()">
+                <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+                <label for="comment">Comment</label>
+                <textarea name="comment" id="comment" cols="20" rows="4" formControlName="comment"
+                    minlength="3"></textarea>
+                <p *ngIf="form.get('comment')?.errors?.['minlength']" class="error">
+                    Comment must be at least 3 characters!
+                </p>
+                <button class="add-comment">ADD COMMENT</button>
+                <button class="add-comment" [routerLink]="['/trips/details/',tripId ]">BACK</button>
+            </form>      
     </section>
 </div>
-

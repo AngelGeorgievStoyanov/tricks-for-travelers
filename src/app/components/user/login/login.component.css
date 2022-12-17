@@ -1,9 +1,13 @@
 #login-page {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-image: url("../../../utils/annie-spratt-qyAka7W5uMY-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #login-form {
@@ -11,11 +15,13 @@
     flex-direction: column;
     align-items: center;
     border: 2px black solid;
-    border-radius: 5px;
+    border-radius: 12px;
     padding: 60px 10px;
     width: 40%;
     height: 324px;
     justify-content: space-around;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
 }
 
 .login-input {
@@ -34,18 +40,28 @@
 .btnSubmit {
     width: 40%;
     cursor: pointer;
+    width: 50%;
+    cursor: pointer;
+    background-color:#181616bd;
+    color: white;
 }
 
 #a {
     color: black;
 }
 
-.login-input{
+.login-input {
     width: 200px;
    
+        
+
 }
 
 .error{
     color: red;
+    margin: 2px;
     font-size: 20px;
+    background-color: #000000ab;
+    padding: 0 5px;
+  
 }

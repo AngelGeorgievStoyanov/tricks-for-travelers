@@ -1,10 +1,19 @@
 #div-edit-coment {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../utils/karsten-winegeart-sLrPsFWJepA-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .section-edit-comment {
     display: flex;
     justify-content: center;
+   
 }
 
 .form-edit-comment {
@@ -17,6 +26,8 @@
     padding: 20px;
     height: 202px;
     width: 260px;
+    background-color: #8d868670;   
+    box-shadow: 3px 2px 5px black;
 }
 
 .btnEdit{
@@ -26,5 +37,8 @@
 
 .error{
     color: red;
-   
+    font-size: 20px;
+    background-color: #0000008a;
+    padding: 0 5px;
+    margin: 0;
 }
