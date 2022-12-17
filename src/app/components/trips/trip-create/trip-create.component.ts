@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TripService } from 'src/app/services/trip.service';
 import { UserService } from 'src/app/services/user.service';
@@ -13,6 +13,9 @@ export class TripCreateComponent {
 
 
   form: FormGroup;
+
+  errorMessage: string | undefined;
+
 
   get userId(): string {
     if (this.userService.user?._id !== undefined) {
@@ -31,27 +34,33 @@ export class TripCreateComponent {
     private fb: FormBuilder,
 
   ) {
-
     this.form = this.fb.group({
-      title: [''],
-      description: [''],
-      imageUrl: [''],
-      transport: [''],
-      countPeoples: [''],
-      typeOfPeople: [''],
-      destination: [''],
+      title: ['',[Validators.required]],
+      description: ['',[Validators.required]],
+      imageUrl: ['',[Validators.required]],
+      transport: ['',[Validators.required]],
+      countPeoples: ['',[Validators.required]],
+      typeOfPeople: ['',[Validators.required]],
+      destination: ['',[Validators.required]],
       coments: [new Array],
       likes: [new Array],
       _ownerId: this.userId,
-      price:['']
+      price: ['',[Validators.required]]
 
     })
   }
 
-
+  get m(){
+    return this.form.controls;
+  }
 
 
   addTrip(): void {
+
+    if(this.form.invalid){
+      this.errorMessage='Plece write add form'
+      return
+    }
 
     this.tripService.createTrip(this.form.value).subscribe({
       next: (() => {

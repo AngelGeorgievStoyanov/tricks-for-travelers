@@ -1,35 +1,36 @@
-
-<!-- <div class="div-edit-trip">
-    <section class="sectiom-edit-trip">
-        <form class="form-edit-trip" #form="ngForm" method="PUT" (ngSubmit)="editTrip(form)">
-            <h2>EDIT YOUR TRIP</h2>
-            <label for="title"></label>
-            <input  [(ngModel)]="trip!.title" ngModel type="text" name="title" >
-            <label for="description">Description</label>
-            <textarea   [(ngModel)]="trip!.description" ngModel name="description" id="" cols="40" rows="7" 
-            ></textarea>
-            <label for="imageUrl">imageUrl</label>
-            <input [(ngModel)]="trip!.imageUrl" ngModel type="text" name="imageUrl"  >
-            <button>EDIT</button>
-        </form>
-    </section> -->
-
-    
- 
-<!-- </div> -->
 <div>
     <section class="sectiom-edit-trip">
-        <form #form="ngForm" class="form-edit-trip"  method="PUT" (ngSubmit)="editTrip(form)">
+        <form #form="ngForm" class="form-edit-trip" method="PUT" (ngSubmit)="editTrip(form)">
+            <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+
             <h2>EDIT YOUR TRIP</h2>
             <label for="title">TITLE :
-                <input  type="text" name="title"  [(ngModel)]="trip!.title" ngModel>
+                <input #titleInput="ngModel" type="text" minlength="3" name="title" required [(ngModel)]="trip!.title"
+                    ngModel>
             </label>
+            <ng-container *ngIf="titleInput.touched">
+                <p *ngIf="titleInput.errors?.['required']" class="error">
+                    Title is required!
+                </p>
+                <p *ngIf="titleInput.errors?.['minlength']" class="error">
+                    Title should be more 3 characters
+                </p>
+            </ng-container>
             <label for="price">PRICE :
-                <input type="number" name="price"  [(ngModel)]="trip!.price" ngModel>
+                <input type="number" name="price" min="0.1" required #priceInput="ngModel" [(ngModel)]="trip!.price"
+                    ngModel>
             </label>
+            <ng-container *ngIf="priceInput.touched">
+                <p *ngIf="priceInput.errors?.['required']" class="error">
+                    Price is required!
+                </p>
+                <p *ngIf="priceInput.errors?.['min']" class="error">
+                    Price must be positive number
+                </p>
+            </ng-container>
 
             <label for="transport">TRANSPORT WITH :
-                <select name="transport" id=""   [(ngModel)]="trip!.transport" ngModel >
+                <select name="transport" id="" [(ngModel)]="trip!.transport" ngModel>
                     <option value="Car">Car</option>
                     <option value="Bus">Bus</option>
                     <option value="Aircraft">Aircraft</option>
@@ -38,10 +39,23 @@
             </label>
 
             <label for="countPeoples">COUNT OF PEOPLE :
-                <input type="number" name="countPeoples"    [(ngModel)]="trip!.countPeoples" ngModel >
+                <input type="number" min="1" pattern="[0-9]" required #countPeoplesInput="ngModel" name="countPeoples" [(ngModel)]="trip!.countPeoples" ngModel>
             </label>
+
+            <ng-container *ngIf="countPeoplesInput.touched">
+                <p *ngIf="countPeoplesInput.errors?.['required']" class="error">
+                    Count of peoples is required!
+                </p>
+                <p *ngIf="countPeoplesInput.errors?.['min']" class="error">
+                    Count of peoples must be positive number
+                </p>
+                <p *ngIf="countPeoplesInput.errors?.['pattern']" class="error">
+                    Count of peoples must be intiger number
+                </p>
+            </ng-container>
+
             <label for="typeOfPeople"> TYPE OF THE GROUP :
-                <select name="typeOfPeople" id=""   [(ngModel)]="trip!.typeOfPeople" ngModel>
+                <select name="typeOfPeople" id="" [(ngModel)]="trip!.typeOfPeople" ngModel>
                     <option value="Family">Family</option>
                     <option value="Family with children">Family with children</option>
                     <option value="Friends">Friends</option>
@@ -50,14 +64,43 @@
 
             </label>
             <label for="destination">DESTINATION :
-                <input type="text" name="destination"  [(ngModel)]="trip!.destination" ngModel>
+                <input type="text" name="destination" #destinationInput="ngModel" required minlength="3" maxlength="30" [(ngModel)]="trip!.destination" ngModel>
             </label>
+            <ng-container *ngIf="destinationInput.touched">
+                <p *ngIf="destinationInput.errors?.['required']" class="error">
+                    Destination is required!
+                </p>
+                <p *ngIf="destinationInput.errors?.['minlength']" class="error">
+                    Destination should be more 3 characters
+                </p>
+                <p *ngIf="destinationInput.errors?.['maxlength']" class="error">
+                    Destination should be max 30 characters
+                </p>
+            </ng-container>
 
             <label for="description">Description</label>
-            <textarea  name="description" id="" cols="40" rows="7"  [(ngModel)]="trip!.description" ngModel></textarea>
+            <textarea name="description" id=""  #descriptionInput="ngModel" required cols="38" rows="4" minlength="3" maxlength="150" [(ngModel)]="trip!.description" ngModel></textarea>
+            <ng-container *ngIf="descriptionInput.touched">
+                <p *ngIf="descriptionInput.errors?.['required']" class="error">
+                    Description is required!
+                </p>
+                <p *ngIf="descriptionInput.errors?.['minlength']" class="error">
+                    Description should be more 3 characters
+                </p>
+                <p *ngIf="descriptionInput.errors?.['maxlength']" class="error">
+                    Description should be max 150 characters
+                </p>
+            </ng-container>
+            
             <label for="imageUrl">imageUrl :
-                <input  type="text" name="imageUrl"  [(ngModel)]="trip!.imageUrl" ngModel>
+                <input type="text" name="imageUrl" #imageUrlInput="ngModel" required  [(ngModel)]="trip!.imageUrl" ngModel>
             </label>
+            <ng-container *ngIf="imageUrlInput.touched">
+                <p *ngIf="imageUrlInput.errors?.['required']" class="error">
+                    Image Url is required!
+                </p>
+              
+            </ng-container>
             <button class="edit-trip">EDIT</button>
         </form>
     </section>

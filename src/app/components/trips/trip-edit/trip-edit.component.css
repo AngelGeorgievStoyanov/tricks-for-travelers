@@ -20,3 +20,10 @@
 .edit-trip{
     cursor: pointer;
 }
+
+
+.error{
+    color: red;
+   
+    margin: 2px;
+}

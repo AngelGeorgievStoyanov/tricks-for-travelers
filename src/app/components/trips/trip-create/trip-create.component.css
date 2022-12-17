@@ -16,3 +16,13 @@
     justify-content: space-around;
     padding-right: 40px;
 }
+
+.btnAdd{
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+   
+    margin: 2px;
+}

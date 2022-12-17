@@ -15,7 +15,7 @@ export class TripEditComponent {
 
   trip: ITrip | undefined;
 
-
+  errorMessage: string = '';
 
   constructor(private tripService: TripService, private activateRoute: ActivatedRoute, private router: Router) {
 
@@ -50,6 +50,11 @@ export class TripEditComponent {
 
 
   editTrip(form: NgForm) {
+
+    if (form.invalid) {
+      this.errorMessage = 'Plece write edit form'
+      return
+    }
 
     const id = this.activateRoute.snapshot.params;// activateRoute.snapshot.params['tripId'] ------- not work?!?
     const tripId = Object.values(id)[0]
