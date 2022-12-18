@@ -43,7 +43,7 @@
         </ng-container>
 
         <label for="countPeoples">COUNT OF PEOPLE :
-            <input type="number" name="countPeoples" min="1" pattern="[0-9]" formControlName="countPeoples">
+            <input type="number" name="countPeoples" min="1" pattern="^[0-9]*$" formControlName="countPeoples">
         </label>
 
         <ng-container *ngIf="form.get('countPeoples')?.touched">
